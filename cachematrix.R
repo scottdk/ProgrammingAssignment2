@@ -30,21 +30,21 @@ makeCacheMatrix <- function(m = matrix()) {
         # set i, the cached inverse of the matrix to be initially NULL 
         i <- NULL
         
-        # set(y) : Function, takes parameter y, setting it as the value for m
-        #          Reset the cached value for the inverse i
+        # set(y) : Function, takes parameter y, setting it as the value for 'm'
+        #          Reset the cached value for the inverse 'i'
         set <- function(y) {
                 m <<- y
                 i <<- NULL
         }
       
-        # get() : Function to return the matrix n stored at initialisation 
+        # get() : Function to return the matrix 'm' stored at initialisation 
         #           or using the set(y) function above
         get <- function() m
       
-        # setInv(inv) : Function To cache the inverse inv of a matrix
+        # setInv(inv) : Function to cache the inverse inv of a matrix
         setInv <-function(inv) i <<- inv
           
-        # getInv() : Function to 
+        # getInv() : Function to return the cached inverse.
         getInv <- function() i
         
         list(set = set,
@@ -55,7 +55,7 @@ makeCacheMatrix <- function(m = matrix()) {
 
 
 ## Return a matrix that is the inverse of 'x'
-## x must be a cached matrix, returned from the makeCacheMatrix function
+## 'x' must be a cached matrix, from the makeCacheMatrix function above
 
 cacheSolve <- function(x, ...) {
                 
@@ -68,7 +68,7 @@ cacheSolve <- function(x, ...) {
                 return(i)
         }
         
-        ##The cached value wasn't found, so create it
+        ##The cached value wasn't found, so create it:
         
         #retrieve the matrix stored
         m <- x$get()
